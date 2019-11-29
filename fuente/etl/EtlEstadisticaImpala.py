@@ -1,9 +1,9 @@
 import fuente.util.Asserciones as Asercion
 from abc import ABCMeta, abstractmethod
-import fuente.dao.impala.DaoExtraccionProp as daoProp
-import os
+import fuente.fabrica.ConexionImpala as cnxImp
+import fuente.dao.AdministradorDao as adminDao
 import fuente.util.Utilerias as Util
-
+import fuente.dao.impala.DaoImpala as daoImp
 
 class EtlEstadisticaImpalaAbs:
     __metaclass__ = ABCMeta
@@ -45,7 +45,10 @@ class EtlEstadisticaImpala(EtlEstadisticaImpalaAbs):
 
     def extrae(self):
         dict_conexion_impala = Util.obten_dict_de_conexion_a_impala()
-        print(dict_conexion_impala.obten())
+        obj_cnx_impala = adminDao.AdministradorDao(cnxImp.ConexionImpala, dict_conexion_impala)
+        dao_impala = daoImp.DaoImpala(obj_cnx_impala, self.esquema, self.nom_tabla)
+        
+
 
     def transforma(self):
         pass
