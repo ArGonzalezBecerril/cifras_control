@@ -17,7 +17,18 @@ class ConexionImpalaAbs(object):
         pass
 
 
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+
 class ConexionImpala(ConexionImpalaAbs):
+    __metaclass__ = Singleton
+
     def __init__(self, dict_datos_cnx):
         self.valida_diccionario(dict_datos_cnx)
         self.valida_parametros(dict_datos_cnx)

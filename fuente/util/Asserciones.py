@@ -18,9 +18,7 @@ def no_existe_directorio(objeto, txt_mensaje):
 
 def no_es_cadena_vacia(cadena, txt_mensaje):
     try:
-        # assert cadena != "" and cadena is not None, txt_mensaje
-        assert cadena is not None, txt_mensaje
-        assert cadena is not "", txt_mensaje
+        assert cadena != "" and cadena is not None, txt_mensaje
     except AssertionError:
         raise Exc.CadenaVacia(txt_mensaje)
 
