@@ -17,7 +17,7 @@ debian@host$ cd EstadisticoDeFtes
 debian@host$ ./spark-submmit ServicioImpala.py --jars mysql-connector-java.jar
 ```
 
-Generador de cifras control
+### Estructura y definición del proyecto
 - Fuente
   - configuración
    - dao
