@@ -26,6 +26,20 @@ class AdministradorDao:
             raise Exc.InstanciaInvalida(txt_mensaje)
 
 
+class AdministradorDeFicheros:
+    def __init__(self, nom_archivo, modo):
+        self.nom_archivo = nom_archivo
+        self.modo = modo
+        self.archivo = None
+
+    def __enter__(self):
+        self.archivo = open(self.nom_archivo, self.modo)
+        return self.archivo
+
+    def __exit__(self, exc_type, exc_value, exc_traceback):
+        self.archivo.close()
+
+
 class DaoExtraccionPropAbc:
     __metaclass__ = ABCMeta
 

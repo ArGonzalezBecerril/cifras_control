@@ -51,4 +51,5 @@ def test_obten(nom_archivo, nom_seccion):
     dict_cnx_impala = dao_extrac_prop.obten()
     obj_conexion = cnxImp.ConexionImpala(dict_cnx_impala)
     conexion_impala = obj_conexion.obten()
+
     assert conexion_impala is not None, "Errores al tratar de conecatarse a impala"

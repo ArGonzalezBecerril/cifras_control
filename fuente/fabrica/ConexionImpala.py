@@ -2,6 +2,7 @@ from abc import ABCMeta, abstractmethod
 import fuente.util.Asserciones as Asercion
 import ibis
 
+
 '''
 @Author : Arturo Gonzalez B.
 @email  : arturo.gonzalez@tusventasdigitales.com
@@ -27,7 +28,6 @@ class Singleton(type):
 
 
 class ConexionImpala(ConexionImpalaAbs):
-    __metaclass__ = Singleton
 
     def __init__(self, dict_datos_cnx):
         self.valida_diccionario(dict_datos_cnx)

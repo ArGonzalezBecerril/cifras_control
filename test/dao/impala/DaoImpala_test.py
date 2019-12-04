@@ -52,7 +52,7 @@ def test_valida_instancia(obj_cnx_impala, esquema, nom_tabla):
 def test_listado_tables_de_bd():   # Return to list
     dict_cnx_impala = dao_extrac_prop.obten()
     obj_conexion = cnxImp.ConexionImpala(dict_cnx_impala)
-    dao_impala = daoImp.DaoImpala(obj_conexion, 'default', 'x')
+    dao_impala = daoImp.DaoImpala(obj_conexion, 'default', 'impala_orders')
     listado_de_tablas = dao_impala.listado_tablas_de_bd()
     lista_tablas_esperadas = ['impala_orders']
 

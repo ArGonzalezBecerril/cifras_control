@@ -1,5 +1,3 @@
-import pytest
-import fuente.util.Excepciones as Exp
 import fuente.etl.EtlEstadisticaImpala as Etl
 import findspark
 import pyspark as pspk
@@ -12,6 +10,7 @@ import fuente.util.LoggerImpl as Log
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.excepthook = Log.trace_error
+
 
 findspark.init("/home/arturo/Software/spark-2.2.3-bin-hadoop2.7")
 context = pspk.SparkContext.getOrCreate()
@@ -27,21 +26,17 @@ sql_context = pysql.SQLContext(context)
 '''
 @Paquete: fuente.etl.EtlEstadisticaImpala
 @Clase:   EtlEstadisticaImpala
+@Test: Integracion de logs y escritura en txt
 '''
 
-
-@pytest.mark.parametrize('contexto', [None, ''])
-def test_valida_instancia(contexto):
-    with pytest.raises(Exp.CadenaVacia):
-        Etl.EtlEstadisticaImpala(sql_context, None, None)
+dto_logger = Log.Logger('', '', 'Generador_de_insumos', '', '')
 
 
-def test_extrae():
-    dict_tablas_impala = Util.obten_diccionario_de_tablas()
-    grupo_de_tablas = dict_tablas_impala.items()
+dict_tablas_impala = Util.obten_diccionario_de_tablas()
+grupo_de_tablas = dict_tablas_impala.items()
 
-    for nom_tabla, esquema in grupo_de_tablas:
-        etl_impala = Etl.EtlEstadisticaImpala(context, esquema, nom_tabla)
-        etl_impala.extrae()
-        etl_impala.transforma()
+for nom_tabla, esquema in grupo_de_tablas:
+    etl_impala = Etl.EtlEstadisticaImpala(context, esquema, nom_tabla)
+    etl_impala.extrae()
+    etl_impala.transforma()
 
