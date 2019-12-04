@@ -18,7 +18,7 @@ debian@host$ ./spark-submmit ServicioImpala.py --jars mysql-connector-java.jar
 ```
 
 Generador de cifras control
--	Fuente
+- Fuente
         - configuración
         - dao
         - etl
@@ -28,7 +28,7 @@ Generador de cifras control
         - util
         - Script_orquestador.py
 
--	Test
+- Test
         - configuración
         - dao
         - etl
