@@ -46,7 +46,6 @@ Generador de cifras control
 **ETL:** Este artefacto se encarga de integrar todos los objetos dispersos alrededor de nuestro diseño y coordinar el trabajo(Extracción, Transformación y Carga)
 >>Podemos tener varios **ETL**, esto va a depender del tamaño de nuestro proyecto, ya que si existe más de un flujo, lo más seguro es que implementemos N **ETL**.
 
->>Importante: Los scripts **DAO** no realizan ninguna conexión directa, para esto se usan los scripts que encontramos dentro de **Fabrica**
 
 **Fabrica:** En esta sección encontramos las clases o script los cuales crean o establecen una conexión(Puede ser a oracle, sysbase, sqlserver, mysql, impala,hive)
 
