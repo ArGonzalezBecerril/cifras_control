@@ -19,23 +19,23 @@ debian@host$ ./spark-submmit ServicioImpala.py --jars mysql-connector-java.jar
 
 Generador de cifras control
 - Fuente
-        - configuración
-        - dao
-        - etl
-        - fabrica
-        - logs
-        - modelo
-        - util
-        - Script_orquestador.py
+  - configuración
+   - dao
+   - etl
+   - fabrica
+   - logs
+   - modelo
+   - util
+   - Script_orquestador.py
 
 - Test
-        - configuración
-        - dao
-        - etl
-        - fabrica
-        - logs
-        - modelo
-        - util
+   - configuración
+   - dao
+   - etl
+   - fabrica
+   - logs
+   - modelo
+   - util
 
 **Configuración:** Directorio donde podemos localizar archivos .properties, .key, .txt, .json estos archivos representan llaves de accesos o credenciales para establecer conexiones.
 
